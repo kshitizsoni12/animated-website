@@ -34,12 +34,10 @@ function init() {
 init();
 
 
-
 var tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".sliding-text ",
     scroller: ".main",
-    markers: true,
     scrub: 1,
     start: "top 7%",
     end: "top -70%",
@@ -51,30 +49,40 @@ tl.to(".sliding-text h1", {
   x: -100,
   filter: "blur(3px)",
   opacity: 0
-  // duration: 1,
 }, "heading")
 
 tl.to(".sliding-text h2", {
   x: 100,
   filter: "blur(3px)",
   opacity: 0
-  // duration: 1,
 }, "heading")
 
 tl.to(".sliding-text p", {
   filter: "blur(3px)",
   opacity: 0
-  // duration: 1,
 }, "heading")
 
 
-tl.to("video", {
+tl.to(".page1 video", {
   width: "90%",
   zIndex: 2,
   marginTop: "-80vh"
 }, "heading")
 
-// gsap.to("video", {
-//   width: "90 %"
 
-// })
+var t2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sliding-text ",
+    scroller: ".main",
+    scrub: 1,
+    markers: true,
+    start: "top -37%",
+    end: "top -40%",
+  }
+})
+
+t2.to(".main", {
+  backgroundColor: "#fefcff",
+  color: "#0f0d0d"
+})
+
