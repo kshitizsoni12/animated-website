@@ -5,7 +5,10 @@ function init() {
 
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector(".main"),
-    smooth: true
+    smooth: true,
+    lerp: 0.08,  // very smooth/slow
+    multiplier: 0.5,  // half speed
+
   });
   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
   locoScroll.on("scroll", ScrollTrigger.update);
@@ -34,9 +37,10 @@ function init() {
 init();
 
 
+
 var tl = gsap.timeline({
   scrollTrigger: {
-    trigger: ".sliding-text ",
+    trigger: ".sliding-text",
     scroller: ".main",
     scrub: 1,
     start: "top 7%",
@@ -70,19 +74,38 @@ tl.to(".page1 video", {
 }, "heading")
 
 
-var t2 = gsap.timeline({
+var tl2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".sliding-text ",
     scroller: ".main",
-    scrub: 1,
-    markers: true,
+    scrub: 2,
     start: "top -37%",
     end: "top -40%",
   }
 })
 
-t2.to(".main", {
+tl2.to(".main", {
   backgroundColor: "#fefcff",
   color: "#0f0d0d"
+})
+
+var tl3 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sliding-text ",
+    scroller: ".main",
+    scrub: 2,
+    markers: true,
+    start: "top -437%",
+    end: "top -442%",
+  }
+})
+
+tl3.to(".main", {
+  backgroundColor: "#0f0d0d",
+  color: "#fefcff"
+})
+
+tl3.to(".page3", {
+  borderBottom: "1px solid #fefcff"
 })
 
