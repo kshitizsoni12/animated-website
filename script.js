@@ -7,7 +7,7 @@ function init() {
     el: document.querySelector(".main"),
     smooth: true,
     lerp: 0.08,  // very smooth/slow
-    multiplier: 0.5,  // half speed
+    multiplier: 0.6,  // half speed
 
   });
   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
@@ -36,6 +36,26 @@ function init() {
 }
 init();
 
+gsap.from(".sliding-text h1", {
+  transformOrigin: "left top",
+  transform: "translateY(5%) rotate(7deg)",
+  opacity: 0,
+  duration: 1.2,
+  scrub: 2
+})
+gsap.from(".sliding-text h2", {
+  transformOrigin: "left top",
+  transform: "translateY(5%) rotate(7deg)",
+  opacity: 0,
+  duration: 1.2,
+  scrub: 2
+})
+gsap.from(".sliding-text p", {
+  opacity: 0,
+  duration: 1.5,
+  scrub: 2,
+  filter: "blur(3px)",
+})
 
 
 var tl = gsap.timeline({
@@ -89,14 +109,46 @@ tl2.to(".main", {
   color: "#0f0d0d"
 })
 
-var tl3 = gsap.timeline({
+
+
+var tlpage2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".sliding-text ",
     scroller: ".main",
     scrub: 2,
-    markers: true,
+    start: "top -57%",
+    end: "top -62%",
+  }
+})
+tlpage2.from(".page2 h2", {
+  transformOrigin: "left top",
+  transform: "translateY(5%) rotate(7deg)",
+  opacity: 0,
+  duration: 1,
+  scrub: 2
+}, "animate")
+tlpage2.from(".page2-left", {
+  x: -50,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.1
+}, "animate")
+tlpage2.from(".page2-right", {
+  x: 50,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.1
+}, "animate")
+
+
+
+var tl3 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sliding-text ",
+    scroller: ".main",
+    scrub: 1,
     start: "top -437%",
-    end: "top -442%",
+    end: "top -452%",
   }
 })
 
@@ -107,5 +159,28 @@ tl3.to(".main", {
 
 tl3.to(".page3", {
   borderBottom: "1px solid #fefcff"
+})
+
+gsap.to(".page5-scroller", {
+  transform: "translate(-74%)",
+  scrollTrigger: {
+    trigger: ".page5",
+    scroller: ".main",
+    markers: true,
+    start: "top-=450 top",
+    end: "+=2000",
+    scrub: 2,
+    pin: true
+  }
+})
+
+
+
+let box = document.querySelectorAll(".sliding-img-box");
+box.forEach((el) => {
+  el.add
+
+
+
 })
 
