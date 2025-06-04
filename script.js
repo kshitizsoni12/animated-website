@@ -6,8 +6,8 @@ function init() {
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector(".main"),
     smooth: true,
-    lerp: 0.08,  // very smooth/slow
-    multiplier: 0.6,  // half speed
+    lerp: 0.05,  // very smooth/slow
+    multiplier: 0.5,  // half speed
 
   });
   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
@@ -116,8 +116,8 @@ var tlpage2 = gsap.timeline({
     trigger: ".sliding-text ",
     scroller: ".main",
     scrub: 2,
-    start: "top -57%",
-    end: "top -62%",
+    start: "top -47%",
+    end: "top -52%",
   }
 })
 tlpage2.from(".page2 h2", {
@@ -178,9 +178,21 @@ gsap.to(".page5-scroller", {
 
 let box = document.querySelectorAll(".sliding-img-box");
 box.forEach((el) => {
-  el.add
+  el.addEventListener("mouseenter", (event) => {
+    el.style.opacity = 1;
+    var att = el.getAttribute("data-img");
 
-
-
+  })
+  el.addEventListener("mouseleave", (event) => {
+    el.style.opacity = 0.4;
+  })
+  let imgg = document.querySelectorAll(".sliding-img-box img")
+  el.addEventListener("mousemove", (event) => {
+    gsap.to(imgg, {
+      x: event.x - 100,
+      duration: 0.05,
+      scrub: 1
+    })
+  })
 })
 
