@@ -108,7 +108,7 @@ body {
 
 .page1 video {
     max-width: 100%;
-    width: 60%;
+    width: 1%;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
