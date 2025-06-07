@@ -125,13 +125,12 @@ tlpage2.from(".page2 h2", {
   transform: "translateY(5%) rotate(7deg)",
   opacity: 0,
   duration: 1,
-  scrub: 2
 }, "animate")
 tlpage2.from(".page2-left", {
   x: -50,
   opacity: 0,
   duration: 1,
-  stagger: 0.1
+  stagger: 0.1,
 }, "animate")
 tlpage2.from(".page2-right", {
   x: 50,
@@ -167,7 +166,7 @@ gsap.to(".page5-scroller", {
     trigger: ".page5",
     scroller: ".main",
     markers: true,
-    start: "top-=450 top",
+    start: "top top",
     end: "+=2000",
     scrub: 2,
     pin: true
